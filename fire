@@ -1,0 +1,6 @@
+fire = "dead"
+print("the fire is",fire)
+decision = input("stoke the fire? (y/n)\n")
+if decision == "y":
+    fire = "lit"
+print("the fire is",fire)
