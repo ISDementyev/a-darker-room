@@ -1,2 +1,2 @@
 # a-darker-room
-adarkroom but worse
+minimalist text-based adventure game inspired by A Dark Room by DoubleSpeak Games
