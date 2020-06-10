@@ -5,6 +5,22 @@ from apscheduler.schedulers.background import BackgroundScheduler
 
 sched = BackgroundScheduler()
 sched.start()
+fireNow = 0
+roomNow = 0
+fireStates = ['dead','lit','roaring']
+roomTemps = ['freezing','cold', 'warm', 'hot']
+stokeCount = 0
+woodCount = 10
+builder = False
+
+
+def fireExamine():
+    global fireNow
+    print('the fire is', fireStates[fireNow])
+
+def roomExamine():
+    global roomNow
+    print('the room is', roomTemps[roomNow])
 
 def fireCooling():
     global fireNow
@@ -18,14 +34,6 @@ def roomCooling():
         roomNow -= 1
         roomExamine()
 
-def fireExamine():
-    global fireNow
-    print('the fire is', fireStates[fireNow])
-
-def roomExamine():
-    global roomNow
-    print('the room is', roomTemps[roomNow])
-
 def woodExamine():
     global woodCount
     print('you have',woodCount,"wood")
@@ -33,13 +41,6 @@ def woodExamine():
 sched.add_job(fireCooling, 'interval', seconds = 5)
 sched.add_job(roomCooling, 'interval', seconds = 15)
 
-fireStates = ['dead','lit','roaring']
-fireNow = 0
-roomTemps = ['freezing','cold', 'warm', 'hot']
-roomNow = 0
-stokeCount = 0
-woodCount = 10
-builder = False
 fireExamine()
 roomExamine()
 woodExamine()
